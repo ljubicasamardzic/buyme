@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="col-6 text-right">
-        <a href="{{ route('cart.show') }}" class="btn border">
+        <a wire:click="redirectToShow" class="btn border">
             <i class="fas fa-shopping-cart text-primary"></i>
             <span class="badge" style="color:#000;">{{ $cartCounter }}</span>
         </a>

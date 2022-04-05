@@ -51,7 +51,11 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
+
     @livewireScripts
+    @stack('scripts')
+
+    @yield('scripts')
 </body>
 
 </html>
