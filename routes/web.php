@@ -19,6 +19,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
-Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-Route::post('/pay', [CartController::class, 'pay'])->name('cart.pay');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::post('/pay', [CartController::class, 'pay'])->name('cart.pay');
+});
+
+
+
+Auth::routes();

@@ -28,34 +28,38 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+
+<div class="container-fluid px-0">
+    <div class="col-12 px-0">
         @include('partials.navbar')
-        @livewire('cart-counter')
     </div>
+</div>
 
-    @yield('content')
+<div class="container-fluid">
+    @livewire('cart-counter')
+</div>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+@yield('content')
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('lib/easing/easing.min.js') }}"></script>
+<script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="{{ asset('mail/jqBootstrapValidation.min.js') }}"></script>
-    <script src="{{ asset('mail/contact.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+<!-- Contact Javascript File -->
+<script src="{{ asset('mail/jqBootstrapValidation.min.js') }}"></script>
+<script src="{{ asset('mail/contact.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
-    <!-- Template Javascript -->
-    <script src="{{ asset('js/main.js') }}"></script>
+<!-- Template Javascript -->
+<script src="{{ asset('js/main.js') }}"></script>
 
-    @livewireScripts
-    @stack('scripts')
+@livewireScripts
+@stack('scripts')
 
-    @yield('scripts')
+@yield('scripts')
 </body>
 
 </html>
+
