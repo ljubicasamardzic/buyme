@@ -10,6 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'quantity', 'price', 'description', 'path'];
+    public $timestamps = false;
 
     public function getFormattedPriceAttribute()
     {

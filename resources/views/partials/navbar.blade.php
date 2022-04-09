@@ -1,29 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light px-md-5">
-    <a href="{{ route('home') }}" class="text-decoration-none">
-        <h2 class="m-0 font-weight-semi-bold">BuyMe</h2>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-light px-md-5 sticky-top bg-secondary">
+    <div class="container-fluid">
+        <div class="col-12 d-flex flex-row justify-content-between">
+            <a href="{{ route('home') }}" class="text-decoration-none">
+                <h2 class="m-0 font-weight-semi-bold text-dark">BuyMe</h2>
+            </a>
+            <div class="d-flex flex-row">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            @guest
-                @if (Route::has('login'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                @endif
+                @guest
+                    <a class="nav-link text-dark" href="{{ route('login') }}">Sign in</a>
+                @endguest
 
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-            @endguest
-            @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}"
+                @auth
+                    <a class="nav-link text-right text-dark" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
@@ -32,9 +20,9 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                </li>
-            @endauth
-        </ul>
+                @endauth
+                @livewire('cart-counter')
+            </div>
+        </div>
     </div>
 </nav>
-

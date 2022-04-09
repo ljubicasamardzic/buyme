@@ -25,6 +25,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/pay', [CartController::class, 'pay'])->name('cart.pay');
 });
 
-
-
 Auth::routes();
