@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Http\Resources\ProductResource;
+use App\Models\Category;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
@@ -11,9 +12,9 @@ class ProductsIndex extends Component
 {
     public $products;
 
-    public function mount()
+    public function mount($products)
     {
-        $this->products = Product::all();
+        $this->products = $products;
     }
 
     public function render()

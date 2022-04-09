@@ -18,7 +18,8 @@ class ProductFactory extends Factory
             'description' => $this->faker->paragraph(5),
             'price' => rand(1500, 20000),
             'quantity' => rand(1, 100),
-            'path' => '/clothes.jpg'
+            'path' => '/clothes.jpg',
+            'category_id' => rand(1, 4)
         ];
     }
 }
