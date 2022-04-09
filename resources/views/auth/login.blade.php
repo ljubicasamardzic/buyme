@@ -40,9 +40,18 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                                <div class="row">
+                                    <div class="col-12 col-md-3">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Login') }}
+                                        </button>
+                                    </div>
+                                    <div class="col-12 col-md-9 mt-3 mt-md-0">
+                                        <a href="{{ route('register') }}" class="pl-md-2">
+                                            <h6 style="color: #D19C97">New here? Register for free!</h6>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
