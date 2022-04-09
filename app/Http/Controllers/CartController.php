@@ -23,9 +23,4 @@ class CartController extends Controller
 
         return view('cart.checkout', compact('cart', 'paymentIntent', 'user'));
     }
-
-    public function pay(Request $request)
-    {
-        dd($request);
-    }
 }

@@ -13,6 +13,6 @@ class CategoryController extends Controller
     {
         $products = Product::where('category_id', $category->id)->get();
 
-        return view('categories.show', compact('products'));
+        return view('categories.show', compact('products', 'category'));
     }
 }

@@ -11,10 +11,12 @@ use Livewire\Component;
 class ProductsIndex extends Component
 {
     public $products;
+    public $category;
 
-    public function mount($products)
+    public function mount($products, $category)
     {
         $this->products = $products;
+        $this->category = $category;
     }
 
     public function render()

@@ -1,6 +1,6 @@
 <div>
     <div class="container-fluid">
-            <div class="row px-xl-5 mb-5">
+            <div class="row px-xl-5 mb-5 mt-5">
                 <form wire:submit.prevent="submit()" class="d-flex d-row justify-content-center mb-5">
                 @csrf
                     <div class="col-12 col-md-4">
