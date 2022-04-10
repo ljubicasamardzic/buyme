@@ -101,6 +101,7 @@
 
             document.getElementById('payment-button').addEventListener('click', function() {
                 document.getElementById('payment-button').disabled = true;
+                document.getElementById('payment-button').innerHTML = `Processing <i class="fas fa-spinner fa-pulse"></i>`;
                 stripe
                     .confirmCardSetup('{{ $paymentIntent->client_secret }}', {
                         payment_method: {
@@ -117,6 +118,7 @@
                             cardErrorDiv.classList.remove('d-none');
 
                             document.getElementById('payment-button').disabled = false;
+                            document.getElementById('payment-button').innerHTML = `Pay {{ $total }}€`;
                         } else {
                             @this.set('paymentMethod', result.setupIntent.payment_method);
                             @this.call('pay');
