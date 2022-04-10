@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -69,5 +70,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function registered(Request $request, User $user)
+    {
+        if (session()->has('redirect_to') && filter_var(session('redirect_to'), FILTER_VALIDATE_URL)) {
+            return redirect(session('redirect_to'));
+        }
+
+        return redirect($this->redirectTo);
     }
 }

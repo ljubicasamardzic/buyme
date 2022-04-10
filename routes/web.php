@@ -22,7 +22,7 @@ Route::get('/categories/{category}', [CategoryController::class, 'show'])->name(
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout')->middleware(['redirect.checkout']);
     Route::post('/pay', [CartController::class, 'pay'])->name('cart.pay');
 });
 
