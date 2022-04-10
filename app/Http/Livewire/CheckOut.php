@@ -64,7 +64,9 @@ class CheckOut extends Component
 
     public function pay()
     {
-        $order = Order::create(['user_id' => auth()->id()]);
+        $user = auth()->user();
+
+        $order = Order::create(['user_id' => $user->id]);
         $items = new Collection();
 
         foreach(Cart::content() as $row) {
@@ -80,8 +82,21 @@ class CheckOut extends Component
 
         $order->items()->saveMany($items);
 
+        try {
+            $user->createOrGetStripeCustomer();
+            $user->updateDefaultPaymentMethod($this->paymentMethod);
+            $user->charge(Cart::total() * 100, $this->paymentMethod);
+            $order->update(['paid_at' => now()]);
+        } catch (\Exception $ex) {
+            $this->dispatchBrowserEvent('lastStep');
+
+            return back()->with(['error' => $ex->getMessage()]);
+        }
+
         Cart::destroy();
 
-        return redirect()->route('home')->with('success', 'You have successfully paid for your order.');
+        alert()->success('Success','Your payment has been successfully processed!');
+
+        return redirect()->route('home');
     }
 }

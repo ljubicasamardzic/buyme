@@ -18,7 +18,6 @@
                         </div>
                         <div class="d-flex flex-row justify-content-center">
                             <form wire:submit.prevent="addToCart({{ $product->id }})">
-                                <input type="hidden" name="product_id" value="{{ $product->id }}">
                                 <button class="btn btn-sm text-dark p-0" type="submit">
                                     <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
                                 </button>

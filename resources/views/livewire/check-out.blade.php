@@ -5,8 +5,9 @@
                 <p class="text-primary">Please fill out the details to complete your purchase.</p>
             </div>
         </div>
+
         <div class="row px-xl-5 mb-5 mt-2">
-            <form wire:submit.prevent="submit()" class="d-flex d-row justify-content-center mb-5">
+            <form class="d-flex d-row justify-content-center mb-5">
             @csrf
                 <div class="col-12 col-md-4">
                     <div class="mb-4 @if($currentStep == 1) d-block @else d-none @endif">
@@ -37,6 +38,12 @@
                             <div id="card-element"></div>
                         </div>
                     </div>
+
+                    @if(session('error'))
+                        <div class="alert alert-danger mt-2">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <div class="alert alert-danger d-none mt-2" id="card-error"></div>
 
                     <div class="@if($currentStep == 1) d-flex flex-row justify-content-end @else d-none @endif">
@@ -49,7 +56,7 @@
                         <button class="btn btn-secondary my-2 py-2" type="button" wire:click="toStepOne">
                             Back
                         </button>
-                        <button class="btn btn-primary my-2 py-2" type="submit" id="payment-button">
+                        <button class="btn btn-primary my-2 py-2" type="button" id="payment-button">
                             Pay {{ $total }}€
                         </button>
                     </div>
