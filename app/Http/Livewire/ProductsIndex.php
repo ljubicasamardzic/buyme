@@ -31,5 +31,10 @@ class ProductsIndex extends Component
         Cart::add($product->id, $product->name, 1, $product->formatted_price, 0, ['path' => $product->path]);
 
         $this->emit('cart_updated');
+
+        $msg = $product->name.' added to cart.';
+        $this->dispatchBrowserEvent('toastr', [
+            'message' => $msg,
+        ]);
     }
 }

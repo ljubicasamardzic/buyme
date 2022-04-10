@@ -21,34 +21,41 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @livewireStyles
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 </head>
 
 <body>
     @include('sweetalert::alert')
     @include('partials.navbar')
 
-    <div class="container-fluid px-0">
-        <div class="col-12 px-0">
-            @if(session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-        </div>
-    </div>
-
     @yield('content')
 
-    <!-- JavaScript Libraries -->
+    @livewireScripts
+    @stack('scripts')
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!-- JavaScript Libraries -->
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
 
-    @livewireScripts
-    @stack('scripts')
+    <script>
+        window.addEventListener('toastr', event => {
+            toastr.options = {
+                positionClass: 'toast-bottom-right',
+                closeButton: true,
+                tapToDismiss: true
+            }
+
+            toastr.success(event.detail.message);
+        });
+    </script>
+
     @yield('scripts')
 </body>
 
