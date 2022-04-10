@@ -22,7 +22,12 @@
                 <h5 class="font-weight-bold">Total</h5>
                 <h5 class="font-weight-bold">{{ $total }}€</h5>
             </div>
-            <button class="btn btn-block btn-primary my-3 py-3" wire:click="goToCheckout">Proceed To Checkout</button>
+            <button class="btn btn-block btn-primary my-3 py-3"
+                    @if($isEmpty) disabled @endif
+                    wire:click="goToCheckout"
+            >
+                Proceed To Checkout
+            </button>
         </div>
     </div>
 </div>

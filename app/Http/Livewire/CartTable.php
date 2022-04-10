@@ -25,6 +25,7 @@ class CartTable extends Component
         }
 
         $this->emit('cart_refreshed');
+        $this->emit('item_removed');
     }
 
     public function reduceQuantity($rowId)

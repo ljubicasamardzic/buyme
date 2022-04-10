@@ -7,7 +7,15 @@ use Livewire\Component;
 
 class CartTotal extends Component
 {
-    protected $listeners = ['cart_refreshed' => 'render'];
+    protected $listeners = ['cart_refreshed' => 'render', 'item_removed' => 'mount'];
+    public $isEmpty = false;
+
+    public function mount()
+    {
+        if (Cart::count() == 0) {
+            $this->isEmpty = true;
+        }
+    }
 
     public function render()
     {
