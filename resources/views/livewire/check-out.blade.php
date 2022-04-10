@@ -5,7 +5,6 @@
                 <p class="text-primary">Please fill out the details to complete your purchase.</p>
             </div>
         </div>
-        </div>
         <div class="row px-xl-5 mb-5 mt-2">
             <form wire:submit.prevent="submit()" class="d-flex d-row justify-content-center mb-5">
             @csrf
