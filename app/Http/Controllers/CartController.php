@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -18,7 +16,7 @@ class CartController extends Controller
     public function checkout()
     {
         $cart = Cart::content();
-        $user = User::find(1);
+        $user = auth()->user();
         $paymentIntent = $user->createSetupIntent();
 
         return view('cart.checkout', compact('cart', 'paymentIntent', 'user'));

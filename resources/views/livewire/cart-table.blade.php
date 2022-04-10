@@ -25,11 +25,24 @@
             </td>
             <td class="align-middle">{{ $product->total }}€</td>
             <td class="align-middle">
-                <button wire:click="removeItem('{{ $product->rowId }}')" class="btn btn-sm btn-primary">
+                <button class="btn btn-sm btn-primary btn-remove" id="{{ $product->rowId }}">
                     <i class="fa fa-times"></i>
                 </button>
             </td>
         </tr>
     @endforeach
 </tbody>
+
+@push('scripts')
+    <script>
+        let removeButtons = document.getElementsByClassName('btn-remove');
+
+        for (let button of removeButtons) {
+            button.addEventListener('click', function() {
+                this.disabled = true;
+                @this.call('removeItem', this.id);
+            })
+        };
+    </script>
+@endpush
 

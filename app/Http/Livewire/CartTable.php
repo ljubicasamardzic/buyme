@@ -34,7 +34,7 @@ class CartTable extends Component
         if ($product) {
             if ($product->qty <= 1) {
                 $this->removeItem($rowId);
-            } else  {
+            } else {
                 Cart::update($rowId, $product->qty - 1);
             }
         }
