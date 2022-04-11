@@ -66,7 +66,14 @@ class CheckOut extends Component
     {
         $user = auth()->user();
 
-        $order = Order::create(['user_id' => $user->id]);
+        $order = Order::create([
+            'user_id' => $user->id,
+            'billing_name' => $this->name,
+            'billing_address' => $this->address,
+            'billing_city' => $this->city,
+            'billing_zip' => $this->zip
+        ]);
+
         $items = new Collection();
 
         foreach(Cart::content() as $row) {
