@@ -9,7 +9,7 @@
                 <div class="card product-item border-0 mb-4">
                     <div
                         class="card-header bg-transparent border p-0">
-                        <img class="w-100 img-fluid" src="{{ $product->path }}" alt="" height="250" width="200">
+                        <img class="w-100 img-fluid" src="{{ $product->path }}" alt="product_image" height="250" width="200">
                     </div>
                     <div class="card-body border-left border-right border-bottom text-center p-0 pt-4 pb-3 d-flex flex-column justify-content-center">
                         <div class="d-flex flex-row justify-content-between px-2">
@@ -18,8 +18,9 @@
                         </div>
                         <div class="d-flex flex-row justify-content-center">
                             <form wire:submit.prevent="addToCart({{ $product->id }})">
-                                <button class="btn btn-sm text-dark p-0" type="submit">
-                                    <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
+                                <button class="btn btn-sm text-dark p-0 font-weight-bold" type="submit">
+                                    <i class="fas fa-shopping-cart text-secondary gold mr-1">
+                                    </i>Add To Cart
                                 </button>
                             </form>
                         </div>

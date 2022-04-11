@@ -5,7 +5,7 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header bg-secondary text-light">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -47,8 +47,8 @@
                                         </button>
                                     </div>
                                     <div class="col-12 col-md-9 col-lg-10 mt-3 mt-md-0 d-flex flex-row align-items-center">
-                                        <a href="{{ route('register') }}" class="pl-md-2">
-                                            <h6 style="color: #D19C97">New here? Register for free!</h6>
+                                        <a href="{{ route('register') }}" class="gold pl-md-2">
+                                            <h6 class="text-gold">New here? Register for free!</h6>
                                         </a>
                                     </div>
                                 </div>

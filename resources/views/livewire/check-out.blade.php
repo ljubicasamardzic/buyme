@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mt-5 px-xl-5">
             <div class="col-12 d-flex flex-row justify-content-center">
-                <p class="text-primary">Please fill out the details to complete your purchase.</p>
+                <p class="text-gold">Please fill out the details to complete your purchase.</p>
             </div>
         </div>
 
@@ -29,10 +29,8 @@
                         </div>
                     </div>
 
+                    <h4 class="font-weight-semi-bold m-0 text-dark mb-4 @if($currentStep == 2) d-block @else d-none @endif">Step 2/2 - Payment Details</h4>
                     <div class="card border-secondary @if($currentStep == 2) d-block @else d-none @endif">
-                        <div class="card-header bg-secondary border-0">
-                            <h4 class="font-weight-semi-bold m-0">Step 2/2 - Payment Details</h4>
-                        </div>
                         <div class="card-body">
                             <input type="hidden" wire:model="paymentMethod" id="payment-method" value=""/>
                             <div id="card-element"></div>
@@ -47,13 +45,13 @@
                     <div class="alert alert-danger d-none mt-2" id="card-error"></div>
 
                     <div class="@if($currentStep == 1) d-flex flex-row justify-content-end @else d-none @endif">
-                        <button class="btn btn-secondary my-2 py-2" type="button" wire:click="toStepTwo">
+                        <button class="btn btn-primary my-2 py-2" type="button" wire:click="toStepTwo">
                             Next
                         </button>
                     </div>
 
                     <div class="@if($currentStep == 2) d-flex justify-content-between mt-5 @else d-none @endif">
-                        <button class="btn btn-secondary my-2 py-2" type="button" wire:click="toStepOne">
+                        <button class="btn btn-primary my-2 py-2" type="button" wire:click="toStepOne">
                             Back
                         </button>
                         <button class="btn btn-primary my-2 py-2" type="button" id="payment-button">

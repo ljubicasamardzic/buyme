@@ -13,7 +13,7 @@
                             </button>
                         </form>
                     </div>
-                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="{{ $product->qty }}">
+                    <input type="text" class="form-control form-control-sm text-center" value="{{ $product->qty }}">
                     <div class="input-group-btn">
                         <form wire:submit.prevent="increaseQuantity('{{ $product->rowId }}')">
                             <button class="btn btn-sm btn-primary btn-plus">

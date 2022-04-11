@@ -1,7 +1,7 @@
 <div class="col-lg-4">
     <div class="card border-secondary mb-5">
         <div class="card-header bg-secondary border-0">
-            <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+            <h4 class="font-weight-semi-bold m-0 text-light">Cart Summary</h4>
         </div>
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3 pt-1">
