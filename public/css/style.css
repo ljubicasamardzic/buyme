@@ -9579,6 +9579,10 @@ a.text-dark:hover, a.text-dark:focus {
   transform: scale(1.2);
 }
 
+.btn .fa-shopping-cart:hover, .btn .fa-shopping-cart:focus {
+    color: #d9d9d9 !important;
+}
+
 .product-item .btn:hover {
   color: rgb(0 30 49) !important;
   text-decoration: underline;
