@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'quantity', 'price', 'description', 'path'];
+    protected $fillable = ['name', 'price', 'path', 'category_id'];
     public $timestamps = false;
 
     public function getFormattedPriceAttribute()

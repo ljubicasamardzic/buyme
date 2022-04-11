@@ -9,7 +9,7 @@
                 <div class="card product-item border-0 mb-4">
                     <div
                         class="card-header bg-transparent border p-0">
-                        <img class="w-100 img-fluid" src="{{ $product->path }}" alt="product_image" height="250" width="200">
+                        <img class="img-product" src="{{ $product->path }}" alt="product_image" height="250" width="200">
                     </div>
                     <div class="card-body border-left border-right border-bottom text-center p-0 pt-4 pb-3 d-flex flex-column justify-content-center">
                         <div class="d-flex flex-row justify-content-between px-2">

@@ -14,6 +14,35 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory(4)->create();
+        $categories = [
+            [
+                'id' => 1,
+                'name' => 'Watches',
+                'path' => '/categories/watch.jpg'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Rings',
+                'path' => '/categories/rings.jpg'
+            ],
+            [
+                'id' => 3,
+                'name' => 'Earrings',
+                'path' => '/categories/earrings.jpg'
+            ],
+            [
+                'id' => 4,
+                'name' => 'Necklaces',
+                'path' => '/categories/necklace.jpg'
+            ]
+        ];
+
+        foreach ($categories as $category) {
+            Category::create([
+                'id' => $category['id'],
+                'name' => $category['name'],
+                'path' => $category['path']
+            ]);
+        }
     }
 }

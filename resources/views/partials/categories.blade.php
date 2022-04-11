@@ -8,7 +8,7 @@
                     >
                         <div class="card">
                             <div class="card-header p-0 overflow-hidden">
-                                <img class="img-fluid" src="{{ $category->path }}" alt="">
+                                <img class="img-cover" src="{{ $category->path }}" alt="">
                             </div>
                            <div class="card-footer" style="background-color: #fff!important;">
                                <h5 class="font-weight-semi-bold m-0 text-secondary">{{ $category->name }}</h5>
