@@ -95,6 +95,8 @@ class CheckOut extends Component
 
         Cart::destroy();
 
+        $this->dispatchBrowserEvent('lastStep');
+
         alert()->success('Success','Your payment has been successfully processed!');
 
         return redirect()->route('home');
