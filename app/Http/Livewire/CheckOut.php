@@ -89,15 +89,19 @@ class CheckOut extends Component
 
         $order->items()->saveMany($items);
 
+        // turns the string into a float despite separator type (in this case comma which caused an error)
+        // turning back to cents for payment purposes
+        $total = floatval(Cart::total()) * 100;
+
         try {
             $user->createOrGetStripeCustomer();
             $user->updateDefaultPaymentMethod($this->paymentMethod);
-            $user->charge(Cart::total() * 100, $this->paymentMethod);
+            $user->charge($total, $this->paymentMethod);
             $order->update(['paid_at' => now()]);
         } catch (\Exception $ex) {
             $this->dispatchBrowserEvent('lastStep');
 
-            return back()->with(['error' => $ex->getMessage()]);
+            return back()->with(['error' => 'ovdje'.$ex->getMessage()]);
         }
 
         Cart::destroy();
