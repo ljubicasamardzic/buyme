@@ -30,6 +30,10 @@
                     </div>
 
                     <h4 class="font-weight-semi-bold m-0 text-dark mb-4 @if($currentStep == 2) d-block @else d-none @endif">Step 2/2 - Payment Details</h4>
+                    <div class="alert alert-danger @if($currentStep == 1) d-none @endif">
+                        <p>Please use the following to test:</p>
+                        <p>4242 4242 4242 4242 424 424 42424</p>
+                    </div>
                     <div class="card border-secondary @if($currentStep == 2) d-block @else d-none @endif">
                         <div class="card-body">
                             <input type="hidden" wire:model="paymentMethod" id="payment-method" value=""/>
