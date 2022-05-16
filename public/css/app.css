@@ -299,8 +299,14 @@ svg {
 
 .img-cover {
     width:  100%;
-    height: 200px;
+    height: 30vh;
     object-fit: cover;
+}
+
+@media(min-width: 1440px) {
+    .img-cover {
+        height: 35vh;
+    }
 }
 
 .img-product {
